@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ArrowDownComponent } from './arrow-down/arrow-down.component';
-import { IconComponent } from './icon/icon.component';
+import { IconComponent } from './icon.component';
 
 
 

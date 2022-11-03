@@ -7,5 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'aerolab_challenge';
-  readonly heroImagePath = '/assets/img/hero-responsive.png'
 }
