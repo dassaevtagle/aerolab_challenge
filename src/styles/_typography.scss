@@ -1,107 +1,104 @@
 h1 {
   font-family: 'Montserrat', sans-serif;
-  font-size: 12.5rem;
+  font-size: 48px;
   font-weight: 900;
   line-height: 80%;
   letter-spacing: 0em;
   text-transform: uppercase;
-  @media (max-width: 1024px) {
-    font-size: 48px;
+
+  @screen lg {
+    font-size: 8rem;
   }
-  @media (min-width: 1024px) { 
-    font-size: 10rem;
+
+  @screen xl {
+    font-size: 9rem;
   }
-  @media (min-width: 1536px) {
+
+  @screen 2xl {
     font-size: 12.5rem;
   }
 }
 
 h2 {
   font-family: 'Montserrat', sans-serif;
-  font-size: 48px;
+  font-size: 32px;
   font-weight: 900;
   line-height: 80%;
   letter-spacing: 0em;
   text-align: left;
   text-transform: uppercase;
 
-  @media (max-width: 1024px) {
-    font-size: 32px;
+  @screen lg {
+    font-size: 48px;
   }
 }
 
 h3 {
   font-family: 'Montserrat', sans-serif;
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 900;
   line-height: 100%;
   letter-spacing: 0em;
   text-transform: uppercase;
-
-  @media (max-width: 1024px) {
+  @screen lg {
     font-size: 24px;
   }
 }
 
 .p1 {
   font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   line-height: 150%;
   letter-spacing: 0em;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
+  @screen lg {
+    font-size: 18px;
   }
 }
 
 .p1-cap {
   font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   line-height: 150%;
   letter-spacing: 4.32px; //24%
   text-transform: uppercase;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
+  @screen lg {
+    font-size: 18px;
   }
 }
 
 .p1-light {
   font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 150%;
   letter-spacing: 4.32px; //24%
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
+  @screen lg {
+    font-size: 18px;
   }
 }
 
 .p2 {
   font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   line-height: 150%;
   letter-spacing: 0em;
-
-  @media (max-width: 1024px) {
-    font-size: 12px;
+  @screen lg {
+    font-size: 14px;
   }
 }
 
 .p2-cap {
   font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   line-height: 150%;
   text-transform: uppercase;
   letter-spacing: 0.7px;
-
-  @media (max-width: 1024px) {
-    font-size: 12px;
+  @screen lg {
+    font-size: 14px;
     letter-spacing: 0em;
   }
 }

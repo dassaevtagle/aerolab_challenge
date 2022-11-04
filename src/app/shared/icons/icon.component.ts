@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Icons } from 'src/app/icons/icons.enum';
+import { Icons } from './icons.enum';
 
 @Component({
   selector: 'icon',

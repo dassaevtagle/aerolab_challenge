@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Icons } from 'src/app/icons/icons.enum';
+import { Icons } from 'src/app/shared/icons/icons.enum';
 
 @Component({
   selector: 'hero',
@@ -9,7 +9,7 @@ import { Icons } from 'src/app/icons/icons.enum';
 })
 export class HeroComponent implements OnInit {
   Icons = Icons
-  readonly heroImagePath = '/assets/img/hero-responsive.png'
+  readonly heroImagePath = '/assets/img/hero-desktop.png'
 
   constructor() { }
 

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeroComponent } from './components/hero/hero.component';
 import { ProductsComponent } from './products.component';
-import { IconsModule } from 'src/app/icons/icons.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 
@@ -13,7 +13,7 @@ import { IconsModule } from 'src/app/icons/icons.module';
   ],
   imports: [
     CommonModule,
-    IconsModule
+    SharedModule
   ],
   exports: [
     ProductsComponent
