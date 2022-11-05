@@ -1,4 +1,5 @@
-<div class="container grid grid-cols-2 items-end mx-[80px] 2xl:mx-auto max-w-fit text-neutral-900 relative">
+<section [style.background]="'url('+backgroundImgPath+')'">
+<div class="container grid grid-cols-2 items-end px-[80px] 2xl:mx-auto max-w-fit text-neutral-900 relative lg:mb-[253px]">
   <div>
     <p class="p1-cap text-neutral-600">
       Explore the
@@ -13,15 +14,18 @@
     <p class="p1 text-neutral-600 mt-6 pr-12">
       Here you’ll be able to exchange all of your hard-earned Aeropoints and exchange them for cool tech.
     </p>
-    <button class="inline-flex mt-16 p1 uppercase text-neutral-0 gradient-brand_default px-6 py-[1.3rem] 2xl:px-10 2xl:py-[1.6rem] rounded-3xl">
+    <button class="button-landing-cta">
       View all products <icon [icon]="Icons.ARROW_DOWN" class="ml-3"></icon>
     </button>
   </div>
   <!-- begin::Image -->
-  <div class="flex justify-end overflow-hidden mt-[-5rem]">
-    <img src={{heroImagePath}} class="mb-[-2.5rem] relative lg:left-[3.8rem] xl:left-[4.2rem] min-w-fit lg:h-[37rem] xl:h-[41.5rem] 2xl:h-[49rem]"/>
-    <div class="rounded-4xl gradient-specials_section-bg lg:w-[30rem] lg:h-[25rem] xl:w-[33rem] xl:h-[28rem] 2xl:w-[40rem] 2xl:h-[34rem] absolute bottom-0 z-[-1]">
+  <div class="flex justify-end overflow-hidden mt-[-8rem]">
+    <img src={{heroImagePath}} class="mb-[-2.8rem] relative lg:left-[3.8rem] xl:left-[4.2rem] min-w-fit lg:h-[37rem] xl:h-[41.5rem] 2xl:h-[49rem] z-10"/>
+    <div class="rounded-4xl gradient-specials_section-bg lg:w-[30rem] lg:h-[25rem] xl:w-[33rem] xl:h-[28rem] 2xl:w-[40rem] 2xl:h-[34rem] absolute bottom-0 z-0">
     </div>
   </div>
   <!-- end::Image -->
 </div>
+<div class="gradient-specials_section-bg h-[528px]">
+</div>
+</section>

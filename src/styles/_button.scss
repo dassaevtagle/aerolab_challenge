@@ -1,0 +1,13 @@
+/* Button styles
+  .button-cta
+  .button-landing-cta
+*/
+.button{
+  &-cta{
+
+  }
+
+  &-landing-cta{
+    @apply inline-flex mt-16 p1 uppercase text-neutral-0 gradient-brand_default px-6 py-[1.3rem] 2xl:px-10 2xl:py-[1.6rem] rounded-3xl;
+  }
+}
