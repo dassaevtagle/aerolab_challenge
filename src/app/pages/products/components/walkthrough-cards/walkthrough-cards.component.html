@@ -1,0 +1,24 @@
+<!-- begin::Walkthrough cards -->
+<ul class="gradient-specials_section-bg lg:h-[328px] 2xl:h-[528px] flex justify-center">
+  <li *ngFor="let step of steps; index as index" class="border border-solid border-neutral-300 bg-white rounded-3xl p-2 lg:h-[476px] lg:w-[332px] 2xl:h-[676px] 2xl:w-[532px]">
+    <div class="border border-solid border-neutral-300 rounded-3xl h-full w-fullinline-flex items-center gap-3">
+      <div class="gradient-specials_illustration-bg rounded-t-3xl">
+        <img [src]="step.image"/>
+      </div>
+      <!-- begin::Card description -->
+      <div class="px-7 pt-4 pb-6">
+        <div class="inline-flex items-center gap-3">
+          <span class="bg-brand-light rounded-xl p-2">
+            <icon [icon]="step.icon"></icon>
+          </span>
+          <h3 class="gradient-brand_default text-gradient">{{index+1}}—{{step.name}}</h3>
+        </div>
+        <p class="p1 text-neutral-600">
+          {{step.description}}
+        </p>
+      </div>
+      <!-- end::Card description -->
+    </div>
+  </li>
+</ul>
+<!-- end::Walkthrough cards -->

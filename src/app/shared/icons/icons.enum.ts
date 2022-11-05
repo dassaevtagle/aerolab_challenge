@@ -1,3 +1,6 @@
 export enum Icons {
-  ARROW_DOWN
+  ARROW_DOWN,
+  STAR,
+  CURSOR,
+  COMPASS
 }
