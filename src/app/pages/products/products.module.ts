@@ -4,6 +4,7 @@ import { HeroComponent } from './components/hero/hero.component';
 import { ProductsComponent } from './products.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { WalkthroughCardsComponent } from './components/walkthrough-cards/walkthrough-cards.component';
+import { ProductsListComponent } from './components/products-list/products-list.component';
 
 
 
@@ -11,7 +12,8 @@ import { WalkthroughCardsComponent } from './components/walkthrough-cards/walkth
   declarations: [
     HeroComponent,
     ProductsComponent,
-    WalkthroughCardsComponent
+    WalkthroughCardsComponent,
+    ProductsListComponent,
   ],
   imports: [
     CommonModule,

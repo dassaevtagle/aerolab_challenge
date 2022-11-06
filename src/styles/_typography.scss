@@ -29,6 +29,10 @@ h2 {
   text-transform: uppercase;
 
   @screen lg {
+    font-size: 38px;
+  }
+
+  @screen 2xl {
     font-size: 48px;
   }
 }
