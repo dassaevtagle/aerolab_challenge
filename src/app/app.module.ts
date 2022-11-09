@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './state';
 import { ProductsEffects } from './state/products';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ProductsEffects } from './state/products';
     }),
     EffectsModule.forRoot([ProductsEffects]),
     AppRoutingModule,
-    ProductsModule
+    ProductsModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

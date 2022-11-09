@@ -5,6 +5,7 @@ import { IconComponent } from './icon.component';
 import { CompassComponent } from './compass/compass.component';
 import { StarComponent } from './star/star.component';
 import { CursorComponent } from './cursor/cursor.component';
+import { KiteComponent } from './kite/kite.component';
 
 
 
@@ -14,7 +15,8 @@ import { CursorComponent } from './cursor/cursor.component';
     IconComponent,
     CompassComponent,
     StarComponent,
-    CursorComponent
+    CursorComponent,
+    KiteComponent
   ],
   imports: [
     CommonModule

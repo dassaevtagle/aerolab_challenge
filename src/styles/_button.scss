@@ -4,7 +4,13 @@
 */
 .button{
   &-cta{
-
+    @apply py-3 px-4 text-neutral-0 gradient-brand_default rounded-xl inline-flex w-full justify-center;
+    @screen 2xl {
+      @apply p1
+    }
+    @screen lg {
+      @apply p2
+    }
   }
 
   &-landing-cta{
