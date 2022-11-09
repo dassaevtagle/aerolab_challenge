@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { Product } from 'src/app/models/product.model';
-import { ApiService } from 'src/app/services/api.service';
+import { selectAllProducts } from 'src/app/state/products';
 
 @Component({
   selector: 'products-list',
@@ -9,14 +11,11 @@ import { ApiService } from 'src/app/services/api.service';
   ]
 })
 export class ProductsListComponent implements OnInit {
-  products: Product[] = [];
+  products$ = this.store.select(selectAllProducts)
 
-  constructor(private api: ApiService) { }
+  constructor(private store: Store) {
+  }
 
   ngOnInit(): void {
-    this.api.getProducts().subscribe({
-      next: products => this.products = products,
-      error: error => console.error("An error on server has ocurred. Try again"),
-    })
   }
 }

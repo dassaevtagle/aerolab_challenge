@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { fetchProductsInitiated } from './state/products';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styles: []
 })
 export class AppComponent {
-  title = 'aerolab_challenge';
+  title = 'Aerolab challenge';
+
+  constructor(private store: Store) {}
+
+  ngOnInit() {
+    this.store.dispatch(fetchProductsInitiated())
+  }
 }
