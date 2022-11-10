@@ -7,5 +7,6 @@ export enum Icons {
   KITE_AEROPAY,
   LOGO,
   CARET_DOWN,
-  CARET_UP
+  CARET_UP,
+  GITHUB
 }

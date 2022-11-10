@@ -8,6 +8,7 @@ import { CursorComponent } from './cursor/cursor.component';
 import { KiteComponent } from './kite/kite.component';
 import { LogoComponent } from './logo/logo.component';
 import { CaretComponent } from './caret/caret.component';
+import { GithubComponent } from './github/github.component';
 
 
 
@@ -20,7 +21,8 @@ import { CaretComponent } from './caret/caret.component';
     CursorComponent,
     KiteComponent,
     LogoComponent,
-    CaretComponent
+    CaretComponent,
+    GithubComponent
   ],
   imports: [
     CommonModule
