@@ -3,5 +3,9 @@ export enum Icons {
   STAR,
   CURSOR,
   COMPASS,
-  KITE
+  KITE,
+  KITE_AEROPAY,
+  LOGO,
+  CARET_DOWN,
+  CARET_UP
 }

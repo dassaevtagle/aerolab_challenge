@@ -1,6 +1,7 @@
 /* Button styles
   .button-cta
   .button-landing-cta
+  .button-aeropay
 */
 .button{
   &-cta{
@@ -15,5 +16,11 @@
 
   &-landing-cta{
     @apply inline-flex mt-16 p1 uppercase text-neutral-0 gradient-brand_default px-6 py-[1.3rem] 2xl:px-10 2xl:py-[1.6rem] rounded-3xl;
+  }
+
+  &-aeropay{
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    @apply bg-neutral-0 border border-neutral-300 px-4 py-2 flex align-middle
   }
 }

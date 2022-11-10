@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Icons } from '../../icons/icons.enum';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class HeaderComponent implements OnInit {
-
+  Icons = Icons
   constructor() { }
 
   ngOnInit(): void {

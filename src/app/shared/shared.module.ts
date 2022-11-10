@@ -4,13 +4,15 @@ import { IconsModule } from './icons/icons.module';
 import { LayoutComponent } from './layout/layout.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
+import { UserBalanceComponent } from './layout/header/user-balance/user-balance.component';
 
 
 @NgModule({
   declarations: [
     LayoutComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    UserBalanceComponent
   ],
   imports: [
     CommonModule,
