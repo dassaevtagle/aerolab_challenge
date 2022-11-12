@@ -5,6 +5,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { UserBalanceComponent } from './layout/header/user-balance/user-balance.component';
+import { PointsCardComponent } from './layout/header/user-balance/points-card/points-card.component';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { UserBalanceComponent } from './layout/header/user-balance/user-balance.
     LayoutComponent,
     HeaderComponent,
     FooterComponent,
-    UserBalanceComponent
+    UserBalanceComponent,
+    PointsCardComponent
   ],
   imports: [
     CommonModule,

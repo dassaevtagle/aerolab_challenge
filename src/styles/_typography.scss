@@ -89,7 +89,7 @@ h3 {
   font-weight: 600;
   line-height: 150%;
   letter-spacing: 0em;
-  @screen lg {
+  @screen 2xl {
     font-size: 14px;
   }
 }
@@ -101,7 +101,7 @@ h3 {
   line-height: 150%;
   text-transform: uppercase;
   letter-spacing: 0.7px;
-  @screen lg {
+  @screen 2xl {
     font-size: 14px;
     letter-spacing: 0em;
   }

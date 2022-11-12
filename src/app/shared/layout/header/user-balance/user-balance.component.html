@@ -1,5 +1,28 @@
-<div class="button-aeropay text-gradient gradient-brand_default p1 hover:cursor-pointer z-50">
-  <icon [icon]="Icons.KITE_AEROPAY" class="pr-2 self-center"></icon>
-  100
-  <icon [icon]="Icons.CARET_DOWN" class="self-center pl-3"></icon>
+<div class="relative">
+  <div class="button-aeropay text-gradient gradient-brand_default p1 hover:cursor-pointer z-50">
+    <icon [icon]="Icons.KITE_AEROPAY" class="pr-2 self-center"></icon>
+    100
+    <icon [icon]="Icons.CARET_DOWN" class="self-center pl-3"></icon>
+  </div>
+  <!-- begin::Points Card Dropdown -->
+  <div class="absolute z-20 mt-2 right-0 w-72 bg-neutral-0 border border-neutral-300 drop-shadow-1 rounded-2xl">
+    <!-- begin::Header -->
+    <p class="p1 border-b border-b-neutral-300 py-4 px-6 text-neutral-900">
+      Add balance
+    </p>
+    <!-- end::Header -->
+    <div class="p-6">
+      <points-card></points-card>
+      <input type="radio" id="add_1000" name="add_points" value="1000" class="">
+      <label for="add_1000">1000</label><br>
+      <input type="radio" id="add_5000" name="add_points" value="5000">
+      <label for="add_5000">5000</label><br>
+      <input type="radio" id="add_7500" name="add_points" value="7500">
+      <label for="add_7500">7500</label>
+      <button class="button-cta">
+        <icon [icon]="Icons.KITE"></icon> &nbsp; Add Points
+      </button>
+    </div>
+  <!-- end::Points Card Dropdown -->
+  </div>
 </div>

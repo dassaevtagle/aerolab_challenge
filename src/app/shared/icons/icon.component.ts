@@ -8,7 +8,7 @@ import { Icons } from './icons.enum';
       <logo></logo>
     </div>
     <div *ngIf="icon === Icons.KITE_AEROPAY" class="w-[24px] h-[24px] 2xl:w-[32px] 2xl:h-[32px]">
-      <kite></kite>
+      <kite-aeropay></kite-aeropay>
     </div>
     <div *ngIf="icon != Icons.KITE_AEROPAY && icon != Icons.LOGO">
       <div [ngSwitch]="icon" class="text-neutral-0 w-[20px] h-[20px] 2xl:w-[24px] 2xl:h-[24px]">
@@ -17,6 +17,7 @@ import { Icons } from './icons.enum';
         <compass *ngSwitchCase="Icons.COMPASS"></compass>
         <star *ngSwitchCase="Icons.STAR"></star>
         <kite *ngSwitchCase="Icons.KITE"></kite>
+        <kite-card *ngSwitchCase="Icons.KITE_CARD"></kite-card>
         <caret *ngSwitchCase="Icons.CARET_DOWN" [orientation]="'DOWN'" class="text-neutral-500"></caret>
         <caret *ngSwitchCase="Icons.CARET_UP" [orientation]="'UP'" class="text-neutral-500"></caret>
         <github *ngSwitchCase="Icons.GITHUB" class="text-neutral-500"></github>

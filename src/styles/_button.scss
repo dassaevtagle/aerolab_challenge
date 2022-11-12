@@ -5,7 +5,7 @@
 */
 .button{
   &-cta{
-    @apply py-3 px-4 text-neutral-0 gradient-brand_default rounded-xl inline-flex w-full justify-center;
+    @apply py-3 px-4 text-neutral-0 gradient-brand_default rounded-xl inline-flex w-full justify-center items-center;
     @screen 2xl {
       @apply p1
     }

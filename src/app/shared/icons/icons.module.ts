@@ -5,10 +5,12 @@ import { IconComponent } from './icon.component';
 import { CompassComponent } from './compass/compass.component';
 import { StarComponent } from './star/star.component';
 import { CursorComponent } from './cursor/cursor.component';
-import { KiteComponent } from './kite/kite.component';
+import { KiteAeropayComponent } from './kite-aeropay/kite-aeropay.component';
 import { LogoComponent } from './logo/logo.component';
 import { CaretComponent } from './caret/caret.component';
 import { GithubComponent } from './github/github.component';
+import { KiteComponent } from './kite/kite.component';
+import { KiteCardComponent } from './kite-card/kite-card.component';
 
 
 
@@ -19,10 +21,12 @@ import { GithubComponent } from './github/github.component';
     CompassComponent,
     StarComponent,
     CursorComponent,
-    KiteComponent,
+    KiteAeropayComponent,
     LogoComponent,
     CaretComponent,
-    GithubComponent
+    GithubComponent,
+    KiteComponent,
+    KiteCardComponent
   ],
   imports: [
     CommonModule
