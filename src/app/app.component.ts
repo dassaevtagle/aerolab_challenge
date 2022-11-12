@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { fetchProductsInitiated } from './state/products';
+import { getUserInfoInitiated } from './state/user';
 
 @Component({
   selector: 'app-root',
@@ -14,5 +15,6 @@ export class AppComponent {
 
   ngOnInit() {
     this.store.dispatch(fetchProductsInitiated())
+    this.store.dispatch(getUserInfoInitiated())
   }
 }

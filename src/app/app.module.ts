@@ -12,6 +12,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from './state';
 import { ProductsEffects } from './state/products';
 import { SharedModule } from './shared/shared.module';
+import { UserEffects } from './state/user';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { SharedModule } from './shared/shared.module';
       logOnly: environment.production, // Restrict extension to log-only mode
       autoPause: true, // Pauses recording actions and state changes when the extension window is not open
     }),
-    EffectsModule.forRoot([ProductsEffects]),
+    EffectsModule.forRoot([ProductsEffects, UserEffects]),
     AppRoutingModule,
     ProductsModule,
     SharedModule
