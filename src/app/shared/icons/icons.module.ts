@@ -11,6 +11,7 @@ import { CaretComponent } from './caret/caret.component';
 import { GithubComponent } from './github/github.component';
 import { KiteComponent } from './kite/kite.component';
 import { KiteCardComponent } from './kite-card/kite-card.component';
+import { KiteDisabledComponent } from './kite-disabled/kite-disabled.component';
 
 
 
@@ -26,7 +27,8 @@ import { KiteCardComponent } from './kite-card/kite-card.component';
     CaretComponent,
     GithubComponent,
     KiteComponent,
-    KiteCardComponent
+    KiteCardComponent,
+    KiteDisabledComponent
   ],
   imports: [
     CommonModule

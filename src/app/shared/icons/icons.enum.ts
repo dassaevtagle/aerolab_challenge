@@ -4,6 +4,7 @@ export enum Icons {
   CURSOR,
   COMPASS,
   KITE,
+  KITE_DISABLED,
   KITE_AEROPAY,
   KITE_CARD,
   LOGO,

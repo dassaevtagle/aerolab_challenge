@@ -17,6 +17,7 @@ import { Icons } from './icons.enum';
         <compass *ngSwitchCase="Icons.COMPASS"></compass>
         <star *ngSwitchCase="Icons.STAR"></star>
         <kite *ngSwitchCase="Icons.KITE"></kite>
+        <kite-disabled *ngSwitchCase="Icons.KITE_DISABLED"></kite-disabled>
         <kite-card *ngSwitchCase="Icons.KITE_CARD"></kite-card>
         <caret *ngSwitchCase="Icons.CARET_DOWN" [orientation]="'DOWN'" class="text-neutral-500"></caret>
         <caret *ngSwitchCase="Icons.CARET_UP" [orientation]="'UP'" class="text-neutral-500"></caret>
