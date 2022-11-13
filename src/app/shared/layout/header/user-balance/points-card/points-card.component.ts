@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Icons } from 'src/app/shared/icons/icons.enum';
 
 @Component({
@@ -9,6 +9,7 @@ import { Icons } from 'src/app/shared/icons/icons.enum';
 })
 export class PointsCardComponent implements OnInit {
   readonly wavePatternPath = '/assets/svg/wave-pattern-card.svg'
+  @Input() userName: string;
   Icons = Icons
   constructor() { }
 

@@ -5,17 +5,47 @@
 */
 .button{
   &-cta{
-    @apply py-3 px-4 text-neutral-0 gradient-brand_default rounded-xl inline-flex w-full justify-center items-center;
+    @apply py-3 px-4 text-neutral-0 gradient-brand_default drop-shadow-1 rounded-xl inline-flex w-full justify-center items-center;
     @screen 2xl {
       @apply p1
     }
     @screen lg {
       @apply p2
     }
+    
+    &_disabled{
+      @apply py-3 px-4 text-neutral-600 bg-neutral-200 drop-shadow-1 rounded-xl inline-flex w-full justify-center items-center hover:cursor-auto;
+      @screen 2xl {
+        @apply p1
+      }
+      @screen lg {
+        @apply p2
+      }
+    }
   }
 
   &-landing-cta{
-    @apply inline-flex mt-16 p1 uppercase text-neutral-0 gradient-brand_default px-6 py-[1.3rem] 2xl:px-10 2xl:py-[1.6rem] rounded-3xl;
+    @apply inline-flex mt-16 p1 uppercase text-neutral-0 gradient-brand_default px-6 py-[1.3rem] 2xl:px-10 2xl:py-[1.6rem] rounded-3xl relative;
+    &:before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      background-image: linear-gradient(
+          120deg,
+          rgba(255,255,255, 0) 30%,
+          rgba(255,255,255, .8),
+          rgba(255,255,255, 0) 70%
+      );
+      animation: shine 3s infinite linear; /* Animation */
+    }
+    @keyframes shine {
+      0% {left: -100px}
+      25% {left: 100%}
+      100% {left: 100%}
+    }
   }
 
   &-aeropay{

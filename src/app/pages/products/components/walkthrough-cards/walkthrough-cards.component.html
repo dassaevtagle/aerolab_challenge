@@ -1,8 +1,8 @@
 <!-- begin::Walkthrough cards -->
 <div class="translate-y-[100px]">
-<div class="gradient-specials_section-bg lg:h-[340px] xl:h-[343px] 2xl:h-[500px] w-full absolute mt-[72px]"></div>
+<div class="gradient-specials_section-bg lg:h-[315px] xl:h-[383px] 2xl:h-[470px] w-full absolute mt-[72px]"></div>
 <ul class="2xl:container px-[80px] 2xl:mx-auto flex justify-center">
-  <li *ngFor="let step of steps; index as index" [ngStyle]="{transform: step.transform}" class="border border-solid border-neutral-300 bg-white rounded-3xl drop-shadow-2 p-2 lg:h-[456px] xl:h-[485px] lg:w-[382px] 2xl:h-[606px] 2xl:w-[532px]">
+  <li *ngFor="let step of steps; index as index" [ngStyle]="{transform: step.transform}" class="border border-solid border-neutral-300 bg-white rounded-3xl drop-shadow-2 p-2 lg:w-[382px] 2xl:w-[532px] lg:h-auto">
     <div class="border border-solid border-neutral-300 rounded-3xl h-full items-center gap-3">
       <div class="gradient-specials_illustration-bg rounded-t-3xl">
         <img [src]="step.image"/>
@@ -15,7 +15,7 @@
           </span>
           <h3 class="gradient-brand_default text-gradient">{{index+1}}—{{step.name}}</h3>
         </div>
-        <p class="p2 text-neutral-600 max-w-[90%]">
+        <p class="p1 text-neutral-600 max-w-[93%]">
           {{step.description}}
         </p>
       </div>

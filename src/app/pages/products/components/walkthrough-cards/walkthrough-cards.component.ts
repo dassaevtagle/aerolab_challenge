@@ -29,7 +29,7 @@ export class WalkthroughCardsComponent implements OnInit {
       description: 'All done, you can relax! We’ll take care of delivery of your tech item!',
       icon: Icons.STAR,
       image: '/assets/img/walkthroug-3-desktop.png',
-      transform: 'rotate(3deg) translateX(-60px)'
+      transform: 'rotate(3deg) translateX(-50px)'
     }
   ]
   constructor() { }

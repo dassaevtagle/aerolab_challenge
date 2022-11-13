@@ -6,7 +6,7 @@ import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { UserBalanceComponent } from './layout/header/user-balance/user-balance.component';
 import { PointsCardComponent } from './layout/header/user-balance/points-card/points-card.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,6 +18,7 @@ import { PointsCardComponent } from './layout/header/user-balance/points-card/po
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     IconsModule
   ],
   exports: [

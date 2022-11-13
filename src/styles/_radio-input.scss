@@ -1,0 +1,25 @@
+input[type="radio"] {
+  display: none;
+  &:hover {
+    cursor: pointer;
+  }
+}
+input[type="radio"]+label {
+  @apply  bg-brand-light p1 py-1 rounded-xl relative text-center text-transparent;
+  &:before {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: attr(data-before);
+    -webkit-text-fill-color: transparent;
+    background-clip: text !important;
+    @apply gradient-brand_default p1 absolute rounded-xl;
+  }  
+}
+
+input[type="radio"]:checked+label {
+  @apply gradient-brand_default text-neutral-100 p1 py-1 text-center rounded-xl;
+  &:before {
+    content: "";
+  }  
+}
