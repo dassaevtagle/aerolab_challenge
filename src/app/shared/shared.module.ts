@@ -7,6 +7,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { UserBalanceComponent } from './layout/header/user-balance/user-balance.component';
 import { PointsCardComponent } from './layout/header/user-balance/points-card/points-card.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     FooterComponent,
     UserBalanceComponent,
-    PointsCardComponent
+    PointsCardComponent,
+    PaginationComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   exports: [
     IconsModule,
-    LayoutComponent
+    LayoutComponent,
+    PaginationComponent
   ],
 })
 export class SharedModule { }

@@ -1,16 +1,15 @@
 <section class="2xl:container px-[80px] 2xl:mx-auto mb-40">
   <h2 class="text-neutral-900 mt-36">
     <span class="text-gradient gradient-brand_default">
-    Tech
-  </span>
-  products
+      Tech
+    </span>
+    products
   </h2>
-  <div>
-    Filters, sort and pagination
-  </div>
-  <ul class="grid grid-cols-4 gap-x-6 gap-y-20">
-    <li *ngFor="let product of products$ | async;">
-      <product-card [product]="product"></product-card>
-    </li>
-  </ul>
+  <pagination>
+    <ul class="grid grid-cols-4 gap-x-6 gap-y-20">
+      <li *ngFor="let product of products$ | async;">
+        <product-card [product]="product"></product-card>
+      </li>
+    </ul>
+  </pagination>
 </section>

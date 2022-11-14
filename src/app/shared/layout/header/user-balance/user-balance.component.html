@@ -20,13 +20,13 @@
       <form [formGroup]="addPointsForm" (ngSubmit)="onSubmit()" class="grid grid-cols-3 gap-x-1 pt-10">
         <!-- data-before holds the radio button text -->
         <input type="radio" id="points_1000" formControlName="points" [value]="1000">
-        <label for="points_1000" data-before="1000">1000</label>
+        <label for="points_1000" data-before="1000" class="py-1">1000</label>
         
         <input type="radio" id="points_5000" formControlName="points" [value]="5000">
-        <label for="points_5000" data-before="5000">5000</label>
+        <label for="points_5000" data-before="5000" class="py-1">5000</label>
 
         <input type="radio" id="points_7500" formControlName="points" [value]="7500">
-        <label for="points_7500" data-before="7500">7000</label>
+        <label for="points_7500" data-before="7500" class="py-1">7000</label>
         
         <div class="col-span-3 mt-6">
           <button *ngIf="addPointsForm.invalid; else buttonValid;" class="button-cta_disabled">
