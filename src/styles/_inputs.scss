@@ -1,0 +1,42 @@
+/* <----- Select dropdown -----> */
+
+select {
+  @apply appearance-none border border-neutral-300 pl-6 pr-14 py-4 rounded-2xl;
+  outline: none;
+  position: relative;
+  background-color: transparent;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' height='10px' width='15px'%3E%3Ctext x='0' y='10' fill='black'%3E%E2%96%BE%3C/text%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 1.5EM 1EM;
+  background-position: right center;
+  background-clip: border-box;
+
+  option {
+    @apply appearance-none pl-6 pr-14 py-4;
+  }
+}
+
+/* <----- Radio buttons ------> */
+input[type="radio"] {
+  display: none;
+}
+input[type="radio"]+label {
+  @apply  bg-brand-light p1 rounded-xl relative text-center text-transparent hover:cursor-pointer;
+  &:before {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: attr(data-before);
+    -webkit-text-fill-color: transparent;
+    background-clip: text !important;
+    width: max-content;
+    @apply gradient-brand_default p1 absolute rounded-xl select-none;
+  }  
+}
+
+input[type="radio"]:checked+label {
+  @apply gradient-brand_default text-neutral-100 p1 py-1 text-center rounded-xl select-none;
+  &:before {
+    content: "";
+  }  
+}

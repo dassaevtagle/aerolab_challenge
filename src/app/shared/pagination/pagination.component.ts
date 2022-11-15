@@ -11,7 +11,7 @@ import { FormControl } from '@angular/forms';
   `]
 })
 export class PaginationComponent implements OnInit {
-  categories = ['Gaming', 'Audio', 'Smart Home', 'Monitors & TV']
+  categories = ['All Products', 'Gaming', 'Audio', 'Smart Home', 'Monitors & TV']
 
   constructor() { }
 

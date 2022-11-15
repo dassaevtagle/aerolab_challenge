@@ -35,7 +35,7 @@ export class UserBalanceComponent implements OnInit {
 
   onSubmit() {
     if(!this.addPointsForm.invalid){
-      alert(this.addPointsForm.value)
+      alert(JSON.stringify(this.addPointsForm.value))
     }
   }
 
