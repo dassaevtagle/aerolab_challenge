@@ -5,11 +5,11 @@
     </span>
     products
   </h2>
-  <pagination (pageEmitter)="goToPage($event)" [pagination]="pagination$ | async;" [numProducts]="products.length">
+  <products-pagination (pageEmitter)="goToPage($event)">
     <ul class="grid grid-cols-4 gap-x-6 gap-y-20">
       <li *ngFor="let product of products$ | async;">
         <product-card [product]="product"></product-card>
       </li>
     </ul>
-  </pagination>
+  </products-pagination>
 </section>
