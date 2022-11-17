@@ -7,18 +7,7 @@ const productsReducer = createReducer(
   on(ProductsActions.fetchProductsSuccess, (state, { products }) => ({
     ...state,
     products,
-    pagination: {
-      ...state.pagination,
-      totalPages: Math.ceil(products.length / state.pagination.pageSize)
-    }
-  })),
-  on(ProductsActions.turnPage, (state, {page}) => {
-    const newPaginationState = {...state.pagination, currentPage: page}
-    return {
-      ...state,
-      pagination: newPaginationState
-    }
-  })
+  }))
 )
 
 export function reducer(state: ProductsState | undefined, action: Action) {

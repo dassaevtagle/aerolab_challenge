@@ -5,9 +5,9 @@
     </span>
     products
   </h2>
-  <products-pagination (pageEmitter)="goToPage($event)">
-    <ul class="grid grid-cols-4 gap-x-6 gap-y-20">
-      <li *ngFor="let product of products$ | async;">
+  <products-pagination (productsEmitter)="catchProducts($event)">
+    <ul *ngIf="products.length > 0" class="grid grid-cols-4 gap-x-6 gap-y-20">
+      <li *ngFor="let product of products">
         <product-card [product]="product"></product-card>
       </li>
     </ul>

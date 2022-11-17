@@ -1,8 +1,9 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { BehaviorSubject, map, Observable } from 'rxjs';
 import { Pagination } from 'src/app/models/pagination.model';
-import { selectAllProducts, selectPagination } from 'src/app/state/products';
+import { Product } from 'src/app/models/product.model';
+import { selectAllProducts } from 'src/app/state/products';
 
 @Component({
   selector: 'products-pagination',
@@ -14,48 +15,119 @@ import { selectAllProducts, selectPagination } from 'src/app/state/products';
   `]
 })
 export class ProductsPaginationComponent implements OnInit {
+  readonly PAGE_SIZE = 16; 
   categories = ['All Products']
-  pagination: Pagination = ({
-    currentPage: 0,
-    pageSize: 0,
-    totalPages: 0,
+  products: Product[];
+  orderedProducts: Product[];
+  visibleProducts: Product[];
+  paginationForm = this.formBuilder.group({
+    filterBy: this.categories,
+    sortBy: [null],
   });
-  numProducts: number = 0;
-  hasNextPage: boolean = false;
-  hasPrevPage: boolean = false;
-  @Output() pageEmitter: EventEmitter<number> = new EventEmitter();
+  pagination: Pagination = ({
+    currentPage: 1,
+    pageSize: this.PAGE_SIZE,
+    totalPages: 0,
+    hasNextPage: false,
+    hasPrevPage: false
+  });
+ 
+  @Output() productsEmitter: EventEmitter<Product[]> = new EventEmitter();
 
-  constructor(private store: Store) { }
+  constructor(private store: Store, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.store.select(selectPagination)
-      .subscribe(pagination => {
-        this.pagination = pagination
-        this.hasNextPage = pagination.currentPage < pagination.totalPages ? true : false;
-        this.hasPrevPage = pagination.currentPage > 1 ? true : false;
-      })
     this.store.select(selectAllProducts)
       .subscribe(products => {
-        this.numProducts = products.length
-        const categories = products.map(p => p.category)
-        this.categories = [...this.categories,...new Set(categories)]
+        this.products = products
+        this.setCategories()
+        this.update()
+      })
+    this.paginationForm.valueChanges
+      .subscribe(() => {
+        this.pagination.currentPage = 1;
+        this.update()
       })
   }
 
+  setCategories() {
+    const categories = this.products.map(p => p.category)
+    this.categories = [...this.categories,...new Set(categories)]
+  }
+
+  update() {
+    //Order is important here!!
+    this.orderProductsByFilters()
+    this.paginateOrderedProducts()
+    this.setVisibleProducts()
+    this.productsEmitter.emit(this.visibleProducts)
+  }
+
+  paginateOrderedProducts(): void {
+    const totalPages = Math.ceil(this.orderedProducts.length / this.pagination.pageSize)
+    const hasNextPage = this.pagination.currentPage < totalPages ? true : false;
+    const hasPrevPage = this.pagination.currentPage > 1 ? true : false;
+    this.pagination = {
+      ...this.pagination,
+      totalPages,
+      hasNextPage,
+      hasPrevPage
+    }
+  }
+
+  orderProductsByFilters(): void {
+    let orderedProducts = this.products;
+    const {filterBy, sortBy} = this.paginationForm.value
+    if(filterBy !== "All Products") {
+      orderedProducts = [...orderedProducts].filter(p => p.category === filterBy)
+    }
+
+    if(sortBy) {
+      switch(sortBy){
+        case 'lowest':
+          orderedProducts = [...orderedProducts].sort((a, b) => {
+            if(a.cost > b.cost) return 1;
+            if(a.cost < b.cost) return -1;
+            return 0;
+          })
+          break;
+        case 'highest':
+          orderedProducts = [...orderedProducts].sort((a, b) => {
+            if(a.cost < b.cost) return 1;
+            if(a.cost > b.cost) return -1;
+            return 0;
+          })
+          break;
+        case 'recent':
+        default:
+          orderedProducts = [...orderedProducts]; //All products are already ordered by most recent
+          break;
+      }
+    } 
+    this.orderedProducts = orderedProducts
+  }
+
+  setVisibleProducts() {
+    const startIndex = this.pagination.pageSize * (this.pagination.currentPage - 1)
+    const endIndex = startIndex + this.pagination.pageSize
+
+    this.visibleProducts = this.orderedProducts.slice(startIndex, endIndex)
+  }
+
   next() {
-    if(this.hasNextPage){
-      this.turnPage(this.pagination.currentPage + 1);
+    if(this.pagination.hasNextPage){
+      this.goToPage(this.pagination.currentPage + 1);
     }
   }
 
   previous() {
-    if(this.hasPrevPage){
-      this.turnPage(this.pagination.currentPage - 1);
+    if(this.pagination.hasPrevPage){
+      this.goToPage(this.pagination.currentPage - 1);
     }
   }
 
-  turnPage(page: number) {
-    this.pageEmitter.emit(page);
+  goToPage(page: number) {
+    this.pagination.currentPage = page
+    this.update()
   }
-
 }

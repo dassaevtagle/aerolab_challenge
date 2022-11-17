@@ -14,7 +14,7 @@ import { selectUserInfo } from 'src/app/state/user';
 export class UserBalanceComponent implements OnInit {
   Icons = Icons;
   user: User;
-  addPointsForm =this.fb.group({
+  addPointsForm = this.fb.group({
     points: [null, [Validators.required]]
   });
   showDropdown = false;

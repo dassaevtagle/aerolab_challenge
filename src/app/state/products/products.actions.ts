@@ -12,8 +12,3 @@ export const  fetchProductsFailed = createAction(
   "[Products Page] Fetch Products Failed",
   props<{error: any}>()
 )
-
-export const turnPage = createAction(
-  "[Products Page] Turn page",
-  props<{page: number}>()
-)

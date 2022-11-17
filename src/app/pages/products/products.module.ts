@@ -7,6 +7,7 @@ import { WalkthroughCardsComponent } from './components/walkthrough-cards/walkth
 import { ProductsListComponent } from './components/products-list/products-list.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ProductsPaginationComponent } from './products-pagination/products-pagination.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -21,6 +22,7 @@ import { ProductsPaginationComponent } from './products-pagination/products-pagi
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     SharedModule
   ],
   exports: [

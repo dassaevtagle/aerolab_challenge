@@ -1,28 +1,29 @@
-<div class="flex w-full items-center mt-10 mb-16 p1 text-neutral-600">
+<form [formGroup]="paginationForm" class="flex w-full items-center mt-10 mb-16 p1 text-neutral-600">
   <label class="mr-4">
     Filter by:
   </label>
-  <select name="categories" id="categories" class="mr-10">
+  <select formControlName="filterBy" name="categories" id="categories" class="mr-10">
     <option *ngFor="let category of categories;" [value]="category">{{category}}</option>
   </select>
   <div class="grow inline-flex">
     <p class="pr-4 pl-10 self-center border-l-2 border-neutral-300">
       Sort by:
     </p>
-    <input type="radio" id="recent" name="sortBy" value="recent">
+    <input type="radio" id="recent" formControlName="sortBy" value="recent">
     <label for="recent" data-before="Most Recent" class="py-2 px-6">Most Recent</label>
     
-    <input type="radio" id="lowest" name="sortBy" value="lowest">
+    <input type="radio" id="lowest" formControlName="sortBy" value="lowest">
     <label for="lowest" data-before="Lowest Price" class="py-2 px-6 mx-3">Lowest Price</label>
 
-    <input type="radio" id="highest" name="sortBy" value="highest">
+    <input type="radio" id="highest" formControlName="sortBy" value="highest">
     <label for="highest" data-before="Highest Price" class="py-2 px-6">Highest Price</label>
   </div>
   <div>
     <span (click)="previous()"><</span>  Page {{pagination.currentPage}} of {{pagination.totalPages}} <span (click)="next()">></span>
   </div>
-</div>
+</form>
 <ng-content></ng-content>
 <div>
-
+  {{visibleProducts.length}} of {{orderedProducts.length}} products
+  <span (click)="previous()"><</span>  Page {{pagination.currentPage}} of {{pagination.totalPages}} <span (click)="next()">></span>
 </div>
