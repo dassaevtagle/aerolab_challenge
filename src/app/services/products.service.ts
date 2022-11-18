@@ -13,4 +13,8 @@ export class ProductsService {
   getProducts() : Observable<Product[]>{
     return this.http.get<Product[]>(`${baseUrl}/products`, requestOptions)
   }
+
+  redeemProduct(productId: string): Observable<{message: string}> {
+    return this.http.post<{message: string}>(`${baseUrl}/redeem`, {productId}, requestOptions)
+  }
 }

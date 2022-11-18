@@ -5,6 +5,6 @@
     <p class="p2-cap text-neutral-600">{{product.category}}</p>
   </div>
 </article>
-<div class="button-cta mt-3 hover:cursor-pointer">
+<div (click)="redeem()" class="button-cta mt-3 hover:cursor-pointer">
   Redeem for &nbsp; <icon [icon]="Icons.KITE"></icon> &nbsp; {{product.cost}}
 </div>

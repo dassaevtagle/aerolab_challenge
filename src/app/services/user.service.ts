@@ -12,6 +12,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getUserInfo(): Observable<User> {
+    console.log('getUserInfo called')
     return this.http.get<User>(`${baseUrl}/user/me`, requestOptions)
   }
 

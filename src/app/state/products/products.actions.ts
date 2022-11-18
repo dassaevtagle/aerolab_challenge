@@ -12,3 +12,15 @@ export const  fetchProductsFailed = createAction(
   "[Products Page] Fetch Products Failed",
   props<{error: any}>()
 )
+export const  redeemProductInitiated = createAction(
+  "[Products Page] Redeem Product Initiated",
+  props<{productId: string}>() 
+)
+export const  redeemProductSucess = createAction(
+  "[Products Page] Redeem Product Success",
+  props<{message: string}>() 
+)
+export const  redeemProductFailed = createAction(
+  "[Products Page] Redeem Product Failed",
+  props<{error: any}>() 
+)

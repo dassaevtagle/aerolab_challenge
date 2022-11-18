@@ -6,7 +6,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { WalkthroughCardsComponent } from './components/walkthrough-cards/walkthrough-cards.component';
 import { ProductsListComponent } from './components/products-list/products-list.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
-import { ProductsPaginationComponent } from './products-pagination/products-pagination.component';
+import { ProductsPaginationComponent } from './components/products-pagination/products-pagination.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
