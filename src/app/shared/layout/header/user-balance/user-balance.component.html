@@ -2,7 +2,7 @@
   <!-- begin::Point button -->
   <div (click)="toggleDropdown()" class="button-aeropay text-gradient gradient-brand_default p1 hover:cursor-pointer z-50">
     <icon [icon]="Icons.KITE_AEROPAY" class="pr-2 self-center"></icon>
-    {{user.points}}
+    {{user.displayPoints}}
     <icon *ngIf="!showDropdown; else caretUp;" [icon]="Icons.CARET_DOWN" class="self-center pl-3"></icon>
     <ng-template #caretUp>
       <icon [icon]="Icons.CARET_UP" class="self-center pl-3"></icon>

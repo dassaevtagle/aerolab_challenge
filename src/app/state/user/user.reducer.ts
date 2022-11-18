@@ -7,6 +7,13 @@ const userReducer = createReducer(
   on(UserActions.getUserInfoSuccess, (state, { user }) => ({
     ...state,
     user
+  })),
+  on(UserActions.addPointsSuccess, (state, {['New Points']: newPoints}) => ({
+    ...state,
+    user: {
+      ...state.user,
+      points: newPoints 
+    }
   }))
 )
 

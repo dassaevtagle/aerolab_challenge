@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { catchError, map, of, switchMap } from "rxjs";
+import { AddPointsResponse } from "src/app/services";
 import { UserService } from "src/app/services/user.service";
 import * as UserActions from "./user.actions"
 
@@ -18,6 +19,22 @@ export class UserEffects {
           ),
           catchError((error) =>
             of(UserActions.getUserInfoFailed({error}))
+          )
+        )
+      )
+    )
+  )
+  addPoints$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(UserActions.addPointsInitiated),
+      switchMap(({amount}) =>
+        this.userService.addPoints(amount).pipe(
+          map((addPointsResponse: AddPointsResponse) => {
+            alert(JSON.stringify(addPointsResponse))
+            return UserActions.addPointsSuccess(addPointsResponse)
+          }),
+          catchError((error) =>
+            of(UserActions.addPointsFailed({error}))
           )
         )
       )
