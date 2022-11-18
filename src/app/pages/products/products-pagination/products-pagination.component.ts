@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { Pagination } from 'src/app/models/pagination.model';
 import { Product } from 'src/app/models/product.model';
 import { selectAllProducts } from 'src/app/state/products';
+import { memoize } from 'src/app/utils/memoize.decorator';
 
 @Component({
   selector: 'products-pagination',
@@ -31,7 +32,7 @@ export class ProductsPaginationComponent implements OnInit {
     hasNextPage: false,
     hasPrevPage: false
   });
- 
+
   @Output() productsEmitter: EventEmitter<Product[]> = new EventEmitter();
 
   constructor(private store: Store, private formBuilder: FormBuilder) { }
@@ -56,28 +57,44 @@ export class ProductsPaginationComponent implements OnInit {
   }
 
   update() {
-    //Order is important here!!
-    this.orderProductsByFilters()
-    this.paginateOrderedProducts()
-    this.setVisibleProducts()
-    this.productsEmitter.emit(this.visibleProducts)
+    const {filterBy, sortBy} = this.paginationForm.value
+    const {orderedProducts, pagination, visibleProducts} = this.pureUpdate(this.products, this.pagination, filterBy, sortBy)
+    this.productsEmitter.emit(visibleProducts)
+
+    this.orderedProducts = orderedProducts
+    this.pagination =  pagination
+    this.visibleProducts = visibleProducts
   }
 
-  paginateOrderedProducts(): void {
-    const totalPages = Math.ceil(this.orderedProducts.length / this.pagination.pageSize)
-    const hasNextPage = this.pagination.currentPage < totalPages ? true : false;
-    const hasPrevPage = this.pagination.currentPage > 1 ? true : false;
-    this.pagination = {
-      ...this.pagination,
+  pureUpdate(products: Product[], pagination: Pagination, filterBy? : string | null, sortBy?: string | null) {
+    const newOrderedProducts = this.orderProducts(products, filterBy, sortBy)
+    const newPagination = this.paginateOrderedProducts(newOrderedProducts, pagination)
+    const newVisibleProducts = this.setVisibleProducts(newOrderedProducts, newPagination)
+  
+    return {
+      products: newOrderedProducts,
+      orderedProducts: newOrderedProducts,
+      pagination: newPagination,
+      visibleProducts: newVisibleProducts
+    }
+  }
+
+  @memoize()
+  paginateOrderedProducts(orderedProducts : Product[], pagination: Pagination): Pagination {
+    const totalPages = Math.ceil(orderedProducts.length / pagination.pageSize)
+    const hasNextPage = pagination.currentPage < totalPages ? true : false;
+    const hasPrevPage = pagination.currentPage > 1 ? true : false;
+    return {
+      ...pagination,
       totalPages,
       hasNextPage,
       hasPrevPage
     }
   }
 
-  orderProductsByFilters(): void {
-    let orderedProducts = this.products;
-    const {filterBy, sortBy} = this.paginationForm.value
+  @memoize()
+  orderProducts(products: Product[], filterBy? : string | null, sortBy?: string | null ): Product[] {
+    let orderedProducts = products;
     if(filterBy !== "All Products") {
       orderedProducts = [...orderedProducts].filter(p => p.category === filterBy)
     }
@@ -104,14 +121,15 @@ export class ProductsPaginationComponent implements OnInit {
           break;
       }
     } 
-    this.orderedProducts = orderedProducts
+    return orderedProducts;
   }
 
-  setVisibleProducts() {
-    const startIndex = this.pagination.pageSize * (this.pagination.currentPage - 1)
-    const endIndex = startIndex + this.pagination.pageSize
+  @memoize()
+  setVisibleProducts(orderedProducts: Product[], pagination: Pagination) {
+    const startIndex = pagination.pageSize * (pagination.currentPage - 1)
+    const endIndex = startIndex + pagination.pageSize
 
-    this.visibleProducts = this.orderedProducts.slice(startIndex, endIndex)
+    return orderedProducts.slice(startIndex, endIndex)
   }
 
   next() {
