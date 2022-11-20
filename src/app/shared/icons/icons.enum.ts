@@ -10,5 +10,7 @@ export enum Icons {
   LOGO,
   CARET_DOWN,
   CARET_UP,
+  CARET_LEFT,
+  CARET_RIGHT,
   GITHUB
 }

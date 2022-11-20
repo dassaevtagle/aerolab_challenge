@@ -3,6 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Pagination } from 'src/app/models/pagination.model';
 import { Product } from 'src/app/models/product.model';
+import { Icons } from 'src/app/shared/icons/icons.enum';
 import { selectAllProducts } from 'src/app/state/products';
 import { memoize } from 'src/app/utils/memoize.decorator';
 
@@ -16,6 +17,7 @@ import { memoize } from 'src/app/utils/memoize.decorator';
   `]
 })
 export class ProductsPaginationComponent implements OnInit {
+  Icons = Icons
   readonly PAGE_SIZE = 16; 
   categories = ['All Products']
   products: Product[];

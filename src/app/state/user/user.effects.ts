@@ -30,7 +30,6 @@ export class UserEffects {
       switchMap(({amount}) =>
         this.userService.addPoints(amount).pipe(
           map((addPointsResponse: AddPointsResponse) => {
-            alert(JSON.stringify(addPointsResponse))
             return UserActions.addPointsSuccess(addPointsResponse)
           }),
           catchError((error) =>

@@ -21,6 +21,8 @@ import { Icons } from './icons.enum';
         <kite-card *ngSwitchCase="Icons.KITE_CARD"></kite-card>
         <caret *ngSwitchCase="Icons.CARET_DOWN" [orientation]="'DOWN'" class="text-neutral-500"></caret>
         <caret *ngSwitchCase="Icons.CARET_UP" [orientation]="'UP'" class="text-neutral-500"></caret>
+        <caret *ngSwitchCase="Icons.CARET_LEFT" [orientation]="'LEFT'" class="text-neutral-500"></caret>
+        <caret *ngSwitchCase="Icons.CARET_RIGHT" [orientation]="'RIGHT'" class="text-neutral-500"></caret>
         <github *ngSwitchCase="Icons.GITHUB" class="text-neutral-500"></github>
       </div>
     </div>

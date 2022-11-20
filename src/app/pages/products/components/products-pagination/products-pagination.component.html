@@ -1,29 +1,61 @@
-<form [formGroup]="paginationForm" class="flex w-full items-center mt-10 mb-16 p1 text-neutral-600">
-  <label class="mr-4">
-    Filter by:
-  </label>
-  <select formControlName="filterBy" name="categories" id="categories" class="mr-10">
-    <option *ngFor="let category of categories;" [value]="category">{{category}}</option>
-  </select>
-  <div class="grow inline-flex">
-    <p class="pr-4 pl-10 self-center border-l-2 border-neutral-300">
-      Sort by:
-    </p>
-    <input type="radio" id="recent" formControlName="sortBy" value="recent">
-    <label for="recent" data-before="Most Recent" class="py-2 px-6">Most Recent</label>
-    
-    <input type="radio" id="lowest" formControlName="sortBy" value="lowest">
-    <label for="lowest" data-before="Lowest Price" class="py-2 px-6 mx-3">Lowest Price</label>
-
-    <input type="radio" id="highest" formControlName="sortBy" value="highest">
-    <label for="highest" data-before="Highest Price" class="py-2 px-6">Highest Price</label>
-  </div>
+<form [formGroup]="paginationForm" class="md:grid md:grid-cols-2 xl:flex w-full items-center mt-10 mb-16 p1 text-neutral-600">
   <div>
-    <span (click)="previous()"><</span>  Page {{pagination.currentPage}} of {{pagination.totalPages}} <span (click)="next()">></span>
+    <label class="lg:mr-1 xl:mr-2 2xl:mr-4">
+      Filter by:
+    </label>
+    <select formControlName="filterBy" name="categories" id="categories" class="py-4 lg:mr-5 xl:mr-8 2xl:mr-10">
+      <option *ngFor="let category of categories;" [value]="category">{{category}}</option>
+    </select>
+  </div>
+  <div class="col-span-2 md:mt-6 xl:mt-0">
+    <div class="grow inline-flex">
+      <p class="hidden xl:block lg:pr-1 lg:pl-6 xl:pr-2 xl:pl-8 2xl:pr-4 2xl:pl-10 self-center xl:border-l-2 xl:border-neutral-300">
+        Sort by:
+      </p>
+      <input type="radio" id="recent" formControlName="sortBy" value="recent">
+      <label for="recent" data-before="Most Recent" class="py-2 px-4 lg:px-2 xl:px-4 2xl:px-6">Most Recent</label>
+
+      <input type="radio" id="lowest" formControlName="sortBy" value="lowest">
+      <label for="lowest" data-before="Lowest Price" class="py-2 px-4 lg:px-2 xl:px-4 2xl:px-6 mx-2 xl:mx-3">Lowest Price</label>
+
+      <input type="radio" id="highest" formControlName="sortBy" value="highest">
+      <label for="highest" data-before="Highest Price" class="py-2 px-4 lg:px-2 xl:px-4 2xl:px-6">Highest Price</label>
+    </div>
+  </div>
+  <div class="border border-neutral-300 rounded-2xl md:row-start-1 md:col-start-2 flex justify-end lg:ml-auto py-3 px-3 2xl:px-4">
+    <icon
+      [icon]="Icons.CARET_LEFT"
+      [ngClass]="['self-center rounded-lg p-1 2xl:p-2', pagination.hasPrevPage ? 'bg-brand-light': 'bg-neutral-200 opacity-40']"
+      (click)="previous()"
+    ></icon>
+    <p class="self-center lg:px-2 2xl:px-6">
+      Page <span class="text-gradient gradient-brand_default">{{pagination.currentPage}} of {{pagination.totalPages}}</span>
+    </p>
+    <icon
+      [icon]="Icons.CARET_RIGHT"
+      [ngClass]="['self-center rounded-lg p-1 2xl:p-2', pagination.hasNextPage ? 'bg-brand-light': 'bg-neutral-200 opacity-40']"
+      (click)="next()"
+    ></icon>
   </div>
 </form>
 <ng-content></ng-content>
-<div>
-  {{visibleProducts.length}} of {{orderedProducts.length}} products
-  <span (click)="previous()"><</span>  Page {{pagination.currentPage}} of {{pagination.totalPages}} <span (click)="next()">></span>
+<div class="p1 text-neutral-600 text-center flex items-center mt-16">
+  <p class="absolute left-[50%] translate-x-[-50%]">
+    <span class="text-gradient gradient-brand_default">{{visibleProducts.length}} of {{orderedProducts.length}}</span> products
+  </p>
+  <div class="border border-neutral-300 rounded-2xl flex lg:ml-auto py-3 px-3 2xl:px-4">
+    <icon
+      [icon]="Icons.CARET_LEFT"
+      [ngClass]="['self-center rounded-lg p-1 2xl:p-2', pagination.hasPrevPage ? 'bg-brand-light': 'bg-neutral-200 opacity-40']"
+      (click)="previous()"
+    ></icon>
+    <p class="self-center lg:px-2 2xl:px-6">
+      Page <span class="text-gradient gradient-brand_default">{{pagination.currentPage}} of {{pagination.totalPages}}</span>
+    </p>
+    <icon
+      [icon]="Icons.CARET_RIGHT"
+      [ngClass]="['self-center rounded-lg p-1 2xl:p-2', pagination.hasNextPage ? 'bg-brand-light': 'bg-neutral-200 opacity-40']"
+      (click)="next()"
+    ></icon>
+  </div>
 </div>
