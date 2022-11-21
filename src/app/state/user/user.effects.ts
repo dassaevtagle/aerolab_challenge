@@ -36,9 +36,16 @@ export class UserEffects {
       switchMap(({ amount }) =>
         this.userService.addPoints(amount).pipe(
           map((addPointsResponse: AddPointsResponse) => {
+            this.notificationService.success({
+              title: `${amount} points`,
+              message: "added successfully",
+            });
             return UserActions.addPointsSuccess(addPointsResponse);
           }),
-          catchError((error) => of(UserActions.addPointsFailed({ error })))
+          catchError((error) => {
+            this.notificationService.error({});
+            return of(UserActions.addPointsFailed({ error }));
+          })
         )
       )
     )

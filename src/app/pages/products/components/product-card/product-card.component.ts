@@ -14,11 +14,16 @@ import { selectUserInfo } from "src/app/state/user";
 export class ProductCardComponent implements OnInit {
   Icons = Icons;
   @Input() product: Product;
+  userPoints: number = -1;
   processing$: Subject<boolean> = new BehaviorSubject(false);
 
   constructor(private store: Store) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.store
+      .select(selectUserInfo)
+      .subscribe((u) => (this.userPoints = u.points));
+  }
 
   redeem(): void {
     this.store.dispatch(

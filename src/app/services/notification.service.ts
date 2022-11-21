@@ -39,11 +39,11 @@ export class NotificationService {
   }
 
   error({
-    message,
+    message = "There was a problem with the transaction",
     duration,
-    title = "There was a problem with the transaction",
+    title,
   }: {
-    message: string;
+    message?: string;
     duration?: number;
     title?: string;
   }) {

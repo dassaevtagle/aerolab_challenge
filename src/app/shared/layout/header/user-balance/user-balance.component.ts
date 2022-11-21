@@ -1,5 +1,4 @@
-import { formatNumber } from "@angular/common";
-import { Component, Inject, LOCALE_ID, OnInit } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
 import { Store } from "@ngrx/store";
 import { User } from "src/app/models/user.model";
@@ -13,22 +12,17 @@ import { addPointsInitiated, selectUserInfo } from "src/app/state/user";
 })
 export class UserBalanceComponent implements OnInit {
   Icons = Icons;
-  user: User & { displayPoints: string };
+  user: User;
   addPointsForm = this.fb.group({
     points: [null, [Validators.required]],
   });
   showDropdown = false;
 
-  constructor(
-    private store: Store,
-    private fb: FormBuilder,
-    @Inject(LOCALE_ID) public locale: string
-  ) {
+  constructor(private store: Store, private fb: FormBuilder) {
     this.store.select(selectUserInfo).subscribe((user) => {
-      this.user = {
-        ...user,
-        displayPoints: formatNumber(user.points, this.locale),
-      };
+      this.user = user;
+      this.showDropdown = false;
+      this.addPointsForm.reset();
     });
   }
 

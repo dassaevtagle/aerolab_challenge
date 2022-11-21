@@ -11,18 +11,32 @@
     <p class="p2-cap text-neutral-600">{{ product.category }}</p>
   </div>
 </article>
+
+<!-- begin::redeem button -->
+<!-- userPoints == -1 only before first getUserInfo is called -->
+<!-- This ng-container is when user doesn't have enough points to redeem the product -->
 <ng-container
-  *ngIf="product.isBeingRedeemed; then processingBtn; else redeemBtn"
-></ng-container>
+  *ngIf="userPoints < product.cost || userPoints === -1; else redeemBlocks"
+>
+  <div class="button-cta_disabled mt-3 select-none">
+    You need &nbsp; <icon [icon]="Icons.KITE_DISABLED"></icon> &nbsp;
+    {{ product.cost | number }}
+  </div>
+</ng-container>
+
+<ng-template #redeemBlocks>
+  <ng-container
+    *ngIf="product.isBeingRedeemed; then processingBtn; else redeemBtn"
+  ></ng-container>
+</ng-template>
+
 <ng-template #redeemBtn>
-  <div
-    (click)="redeem()"
-    class="button-cta mt-3 hover:cursor-pointer drop-shadow-1"
-  >
+  <div (click)="redeem()" class="button-cta mt-3 hover:cursor-pointer">
     Redeem for &nbsp; <icon [icon]="Icons.KITE"></icon> &nbsp;
-    {{ product.cost }}
+    {{ product.cost | number }}
   </div>
 </ng-template>
 <ng-template #processingBtn>
-  <div class="button-cta mt-3 drop-shadow-1 opacity-70">Processing...</div>
+  <div class="button-cta mt-3 opacity-70">Processing...</div>
 </ng-template>
+<!-- end::redeem button -->
