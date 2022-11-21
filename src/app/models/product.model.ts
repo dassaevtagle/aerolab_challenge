@@ -7,4 +7,5 @@ export type Product = {
     url: string;
     hdUrl: string;
   };
+  isBeingRedeemed: boolean;
 };

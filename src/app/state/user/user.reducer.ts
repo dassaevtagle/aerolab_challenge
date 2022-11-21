@@ -1,3 +1,4 @@
+import { state } from "@angular/animations";
 import { Action, createReducer, on } from "@ngrx/store";
 import * as UserActions from "./user.actions";
 import { initialState, UserState } from "./user.state";
@@ -13,6 +14,13 @@ const userReducer = createReducer(
     user: {
       ...state.user,
       points: newPoints,
+    },
+  })),
+  on(UserActions.restPoints, (state, { pointsRested }) => ({
+    ...state,
+    user: {
+      ...state.user,
+      points: state.user.points - pointsRested,
     },
   }))
 );

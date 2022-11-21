@@ -26,3 +26,9 @@ export const addPointsFailed = createAction(
   "[User] Add points initiated",
   props<{ error: any }>()
 );
+
+//Only call this when redeemProduct succeeds.
+export const restPoints = createAction(
+  "[User] Rest user points",
+  props<{ pointsRested: number }>()
+);

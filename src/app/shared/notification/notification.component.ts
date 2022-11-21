@@ -31,7 +31,6 @@ export class NotificationComponent implements OnInit {
 
   private addNotification(notification: Notification) {
     this.notifications.push(notification);
-    console.log(notification);
     const timeout = setTimeout(
       () => this.close(notification.id),
       notification.duration

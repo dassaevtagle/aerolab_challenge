@@ -14,13 +14,13 @@ export const fetchProductsFailed = createAction(
 );
 export const redeemProductInitiated = createAction(
   "[Products Page] Redeem Product Initiated",
-  props<{ productId: string }>()
+  props<{ productId: string; productCost: number; productName: string }>()
 );
 export const redeemProductSucess = createAction(
   "[Products Page] Redeem Product Success",
-  props<{ message: string }>()
+  props<{ message: string; productId: string; pointsRested: number }>()
 );
 export const redeemProductFailed = createAction(
   "[Products Page] Redeem Product Failed",
-  props<{ error: any }>()
+  props<{ error: any; productId: string }>()
 );

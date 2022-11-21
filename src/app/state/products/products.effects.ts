@@ -4,12 +4,14 @@ import { catchError, map, of, switchMap, exhaustMap } from "rxjs";
 import { ProductsService } from "src/app/services/products.service";
 import * as ProductsActions from "./products.actions";
 import * as UserActions from "../user/user.actions";
+import { NotificationService } from "src/app/services/notification.service";
 
 @Injectable()
 export class ProductsEffects {
   constructor(
     private actions$: Actions<any>,
-    private productsService: ProductsService
+    private productsService: ProductsService,
+    private notificationService: NotificationService
   ) {}
 
   fetchProducts$ = createEffect(() =>
@@ -29,14 +31,27 @@ export class ProductsEffects {
   redeemProduct$ = createEffect(() =>
     this.actions$.pipe(
       ofType(ProductsActions.redeemProductInitiated),
-      exhaustMap(({ productId }) =>
+      exhaustMap(({ productId, productCost, productName }) =>
         this.productsService.redeemProduct(productId).pipe(
-          map(({ message }) =>
-            ProductsActions.redeemProductSucess({ message })
-          ),
-          catchError((error) =>
-            of(ProductsActions.redeemProductFailed({ error }))
-          )
+          map(({ message }) => {
+            this.notificationService.success({
+              title: productName,
+              message: "redeemed successfully",
+            });
+            return ProductsActions.redeemProductSucess({
+              message,
+              productId,
+              pointsRested: productCost,
+            });
+          }),
+          catchError((error) => {
+            this.notificationService.error({
+              message: "There was a problem with the transaction",
+            });
+            return of(
+              ProductsActions.redeemProductFailed({ error, productId })
+            );
+          })
         )
       )
     )
@@ -45,7 +60,7 @@ export class ProductsEffects {
   redeemProductSuccess$ = createEffect(() =>
     this.actions$.pipe(
       ofType(ProductsActions.redeemProductSucess),
-      map(() => UserActions.getUserInfoInitiated())
+      map(({ pointsRested }) => UserActions.restPoints({ pointsRested }))
     )
   );
 }

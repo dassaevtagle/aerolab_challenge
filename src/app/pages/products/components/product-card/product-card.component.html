@@ -1,5 +1,5 @@
 <article
-  class="border border-neutral-300 rounded-lg bg-neutral-0 drop-shadow 2xl:max-h-fit 2xl:max-w-fit"
+  class="border border-neutral-300 rounded-lg bg-neutral-0 2xl:max-h-fit 2xl:max-w-fit drop-shadow-1"
 >
   <img
     [src]="product.img.hdUrl"
@@ -11,6 +11,18 @@
     <p class="p2-cap text-neutral-600">{{ product.category }}</p>
   </div>
 </article>
-<div (click)="redeem()" class="button-cta mt-3 hover:cursor-pointer">
-  Redeem for &nbsp; <icon [icon]="Icons.KITE"></icon> &nbsp; {{ product.cost }}
-</div>
+<ng-container
+  *ngIf="product.isBeingRedeemed; then processingBtn; else redeemBtn"
+></ng-container>
+<ng-template #redeemBtn>
+  <div
+    (click)="redeem()"
+    class="button-cta mt-3 hover:cursor-pointer drop-shadow-1"
+  >
+    Redeem for &nbsp; <icon [icon]="Icons.KITE"></icon> &nbsp;
+    {{ product.cost }}
+  </div>
+</ng-template>
+<ng-template #processingBtn>
+  <div class="button-cta mt-3 drop-shadow-1 opacity-70">Processing...</div>
+</ng-template>
