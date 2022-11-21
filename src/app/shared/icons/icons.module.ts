@@ -1,19 +1,20 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ArrowDownComponent } from './arrow-down/arrow-down.component';
-import { IconComponent } from './icon.component';
-import { CompassComponent } from './compass/compass.component';
-import { StarComponent } from './star/star.component';
-import { CursorComponent } from './cursor/cursor.component';
-import { KiteAeropayComponent } from './kite-aeropay/kite-aeropay.component';
-import { LogoComponent } from './logo/logo.component';
-import { CaretComponent } from './caret/caret.component';
-import { GithubComponent } from './github/github.component';
-import { KiteComponent } from './kite/kite.component';
-import { KiteCardComponent } from './kite-card/kite-card.component';
-import { KiteDisabledComponent } from './kite-disabled/kite-disabled.component';
-
-
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { ArrowDownComponent } from "./arrow-down/arrow-down.component";
+import { IconComponent } from "./icon.component";
+import { CompassComponent } from "./compass/compass.component";
+import { StarComponent } from "./star/star.component";
+import { CursorComponent } from "./cursor/cursor.component";
+import { KiteAeropayComponent } from "./kite-aeropay/kite-aeropay.component";
+import { LogoComponent } from "./logo/logo.component";
+import { CaretComponent } from "./caret/caret.component";
+import { GithubComponent } from "./github/github.component";
+import { KiteComponent } from "./kite/kite.component";
+import { KiteCardComponent } from "./kite-card/kite-card.component";
+import { KiteDisabledComponent } from "./kite-disabled/kite-disabled.component";
+import { SuccessComponent } from "./success/success.component";
+import { ErrorComponent } from "./error/error.component";
+import { CloseComponent } from "./close/close.component";
 
 @NgModule({
   declarations: [
@@ -28,11 +29,12 @@ import { KiteDisabledComponent } from './kite-disabled/kite-disabled.component';
     GithubComponent,
     KiteComponent,
     KiteCardComponent,
-    KiteDisabledComponent
+    KiteDisabledComponent,
+    SuccessComponent,
+    ErrorComponent,
+    CloseComponent,
   ],
-  imports: [
-    CommonModule
-  ],
-  exports: [IconComponent]
+  imports: [CommonModule],
+  exports: [IconComponent],
 })
-export class IconsModule { }
+export class IconsModule {}

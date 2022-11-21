@@ -1,0 +1,56 @@
+<section
+  #notificationContainer
+  class="fixed z-50 lg:left-[109px] lg:bottom-[40px] grid gap-y-3"
+>
+  <ng-container *ngFor="let notification of notifications">
+    <!-- Successs notification -->
+    <ng-container *ngIf="notification.type === 0">
+      <ng-container
+        *ngTemplateOutlet="success; context: { $implicit: notification }"
+      ></ng-container>
+    </ng-container>
+    <!-- Error notification -->
+    <ng-container *ngIf="notification.type === 1">
+      <ng-container
+        *ngTemplateOutlet="error; context: { $implicit: notification }"
+      ></ng-container>
+    </ng-container>
+  </ng-container>
+</section>
+
+<ng-template #success let-notification>
+  <article
+    class="inline-flex lg:min-w-[532px] p-6 border-2 border-green bg-neutral-0 rounded-xl drop-shadow-1"
+  >
+    <icon [icon]="Icons.SUCCESS" class="self-center"></icon>
+    <p class="p1 text-neutral-600 ml-4">
+      <span class="text-neutral-900" *ngIf="!!notification.title">{{
+        notification.title
+      }}</span>
+      {{ notification.message }}
+    </p>
+    <icon
+      [icon]="Icons.CLOSE"
+      class="cursor-pointer self-center ml-auto"
+      (click)="close(notification.id)"
+    ></icon>
+  </article>
+</ng-template>
+<ng-template #error let-notification>
+  <article
+    class="inline-flex lg:min-w-[532px] p-6 border-2 border-red bg-neutral-0 rounded-xl drop-shadow-1"
+  >
+    <icon [icon]="Icons.ERROR" class="self-center"></icon>
+    <p class="p1 text-neutral-600 ml-4">
+      <span class="text-neutral-900" *ngIf="!!notification.title">{{
+        notification.title
+      }}</span>
+      {{ notification.message }}
+    </p>
+    <icon
+      [icon]="Icons.CLOSE"
+      class="cursor-pointer self-center ml-auto"
+      (click)="close(notification.id)"
+    ></icon>
+  </article>
+</ng-template>

@@ -1,30 +1,36 @@
-<main [style.background-image]="'url('+backgroundImgPath+')'" [style.background-size]="'95%'">
-<div class="container grid grid-cols-2 px-[80px] 2xl:mx-auto items-end max-w-fit 2xl:max-w-[1536px] text-neutral-900 relative lg:mb-[81px] lg:pt-[33px] select-none">
-  <div>
-    <p class="p1-cap text-neutral-600">
-      Explore the
-    </p>
-    <h1>
-      <span class="gradient-brand_default text-gradient">
-        Tech
-      </span>
-      <br/>
-      zone
-    </h1>
-    <p class="p1 text-neutral-600 mt-6 pr-12">
-      Here you’ll be able to exchange all of your hard-earned Aeropoints and exchange them for cool tech.
-    </p>
-    <button class="button-landing-cta z-0">
-      View all products <icon [icon]="Icons.ARROW_DOWN" class="ml-3"></icon>
-    </button>
-  </div>
-  <!-- begin::Image -->
-  <div class="flex justify-end overflow-hidden mt-[-8rem]">
-    <img src={{heroImagePath}} class="mb-[-2.8rem] relative lg:left-[3.8rem] xl:left-[4.2rem] max-w-fit lg:h-[31rem] xl:h-[35.5rem] 2xl:h-[42.5rem] z-10"/>
-    <div class="rounded-4xl gradient-specials_section-bg lg:w-[29rem] lg:h-[25rem] xl:w-[33.5rem] xl:h-[28rem] 2xl:w-[41rem] 2xl:h-[34rem] absolute bottom-0 z-0">
+<main
+  [style.background-image]="'url(' + backgroundImgPath + ')'"
+  [style.background-size]="'95%'"
+>
+  <div
+    class="container grid grid-cols-2 px-[80px] 2xl:mx-auto items-end max-w-fit 2xl:max-w-[1536px] text-neutral-900 relative lg:mb-[81px] lg:pt-[33px] select-none"
+  >
+    <div>
+      <p class="p1-cap text-neutral-600">Explore the</p>
+      <h1>
+        <span class="gradient-brand_default text-gradient"> Tech </span>
+        <br />
+        zone
+      </h1>
+      <p class="p1 text-neutral-600 mt-6 pr-12">
+        Here you’ll be able to exchange all of your hard-earned Aeropoints and
+        exchange them for cool tech.
+      </p>
+      <button class="button-landing-cta z-0">
+        View all products <icon [icon]="Icons.ARROW_DOWN" class="ml-3"></icon>
+      </button>
     </div>
+    <!-- begin::Image -->
+    <div class="flex justify-end overflow-hidden mt-[-8rem]">
+      <img
+        src="{{ heroImagePath }}"
+        class="mb-[-2.8rem] relative lg:left-[3.8rem] xl:left-[4.2rem] max-w-fit lg:h-[31rem] xl:h-[35.5rem] 2xl:h-[42.5rem] z-10"
+      />
+      <div
+        class="rounded-4xl gradient-specials_section-bg lg:w-[29rem] lg:h-[25rem] xl:w-[33.5rem] xl:h-[28rem] 2xl:w-[41rem] 2xl:h-[34rem] absolute bottom-0 z-0"
+      ></div>
+    </div>
+    <!-- end::Image -->
   </div>
-  <!-- end::Image -->
-</div>
-<walkthrough-cards></walkthrough-cards>
+  <walkthrough-cards></walkthrough-cards>
 </main>

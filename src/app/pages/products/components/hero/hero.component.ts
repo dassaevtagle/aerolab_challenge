@@ -1,21 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { Icons } from 'src/app/shared/icons/icons.enum';
+import { Component, OnInit } from "@angular/core";
+import { Icons } from "src/app/shared/icons/icons.enum";
 
 @Component({
-  selector: 'hero',
-  templateUrl: './hero.component.html',
-  styles: [
-  ]
+  selector: "hero",
+  templateUrl: "./hero.component.html",
+  styles: [],
 })
 export class HeroComponent implements OnInit {
   //Import this enum to set icon type
-  Icons = Icons
-  readonly heroImagePath = '/assets/img/hero-desktop-cropped.png'
-  readonly backgroundImgPath = '/assets/svg/wave-pattern.svg'
+  Icons = Icons;
+  readonly heroImagePath = "/assets/img/hero-desktop-cropped.png";
+  readonly backgroundImgPath = "/assets/svg/wave-pattern.svg";
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

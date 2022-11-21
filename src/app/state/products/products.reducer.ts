@@ -1,5 +1,5 @@
 import { Action, createReducer, on } from "@ngrx/store";
-import * as ProductsActions from "./products.actions"
+import * as ProductsActions from "./products.actions";
 import { initialState, ProductsState } from "./products.state";
 
 const productsReducer = createReducer(
@@ -8,8 +8,8 @@ const productsReducer = createReducer(
     ...state,
     products,
   }))
-)
+);
 
 export function reducer(state: ProductsState | undefined, action: Action) {
-  return productsReducer(state, action)
+  return productsReducer(state, action);
 }

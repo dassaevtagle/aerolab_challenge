@@ -1,4 +1,4 @@
 export type AddPointsResponse = {
-  message: string
-  ['New Points']: number
-}
+  message: string;
+  ["New Points"]: number;
+};

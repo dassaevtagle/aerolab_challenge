@@ -1,16 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'kite-card',
-  templateUrl: './kite-card.component.html',
-  styles: [
-  ]
+  selector: "kite-card",
+  templateUrl: "./kite-card.component.html",
+  styles: [],
 })
 export class KiteCardComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

@@ -1,10 +1,10 @@
 export type Product = {
-  _id: string
-  name: string
-  cost: number
-  category: string
+  _id: string;
+  name: string;
+  cost: number;
+  category: string;
   img: {
-    url: string
-    hdUrl: string
-  }
-}
+    url: string;
+    hdUrl: string;
+  };
+};

@@ -1,45 +1,79 @@
 <div class="relative">
   <!-- begin::Point button -->
-  <div (click)="toggleDropdown()" class="button-aeropay text-gradient gradient-brand_default p1 hover:cursor-pointer z-50">
+  <div
+    (click)="toggleDropdown()"
+    class="button-aeropay text-gradient gradient-brand_default p1 hover:cursor-pointer z-50"
+  >
     <icon [icon]="Icons.KITE_AEROPAY" class="pr-2 self-center"></icon>
-    {{user.displayPoints}}
-    <icon *ngIf="!showDropdown; else caretUp;" [icon]="Icons.CARET_DOWN" class="self-center pl-3"></icon>
+    {{ user.displayPoints }}
+    <icon
+      *ngIf="!showDropdown; else caretUp"
+      [icon]="Icons.CARET_DOWN"
+      class="self-center pl-3"
+    ></icon>
     <ng-template #caretUp>
       <icon [icon]="Icons.CARET_UP" class="self-center pl-3"></icon>
     </ng-template>
   </div>
   <!-- end::Point button -->
   <!-- begin::Points Card Dropdown -->
-  <div *ngIf="showDropdown" class="absolute z-20 mt-2 right-0 w-72 bg-neutral-0 border border-neutral-300 drop-shadow-1 rounded-2xl">
-    <p class="p1 border-b border-b-neutral-300 py-4 px-6 text-neutral-900 select-none">
+  <div
+    *ngIf="showDropdown"
+    class="absolute z-20 mt-2 right-0 w-72 bg-neutral-0 border border-neutral-300 drop-shadow-1 rounded-2xl"
+  >
+    <p
+      class="p1 border-b border-b-neutral-300 py-4 px-6 text-neutral-900 select-none"
+    >
       Add balance
     </p>
     <div class="p-6">
       <!-- User Card -->
       <points-card [userName]="user.name"></points-card>
-      <form [formGroup]="addPointsForm" (ngSubmit)="onSubmit()" class="grid grid-cols-3 gap-x-1 pt-10">
+      <form
+        [formGroup]="addPointsForm"
+        (ngSubmit)="onSubmit()"
+        class="grid grid-cols-3 gap-x-1 pt-10"
+      >
         <!-- data-before holds the radio button text -->
-        <input type="radio" id="points_1000" formControlName="points" [value]="1000">
+        <input
+          type="radio"
+          id="points_1000"
+          formControlName="points"
+          [value]="1000"
+        />
         <label for="points_1000" data-before="1000" class="py-1">1000</label>
-        
-        <input type="radio" id="points_5000" formControlName="points" [value]="5000">
+
+        <input
+          type="radio"
+          id="points_5000"
+          formControlName="points"
+          [value]="5000"
+        />
         <label for="points_5000" data-before="5000" class="py-1">5000</label>
 
-        <input type="radio" id="points_7500" formControlName="points" [value]="7500">
+        <input
+          type="radio"
+          id="points_7500"
+          formControlName="points"
+          [value]="7500"
+        />
         <label for="points_7500" data-before="7500" class="py-1">7000</label>
-        
+
         <div class="col-span-3 mt-6">
-          <button *ngIf="addPointsForm.invalid; else buttonValid;" class="button-cta_disabled">
+          <button
+            *ngIf="addPointsForm.invalid; else buttonValid"
+            class="button-cta_disabled"
+          >
             <icon [icon]="Icons.KITE_DISABLED"></icon> &nbsp; Add Points
           </button>
           <ng-template #buttonValid>
-            <button  type="submit" class="button-cta">
+            <button type="submit" class="button-cta">
               <icon [icon]="Icons.KITE"></icon> &nbsp; Add Points
             </button>
           </ng-template>
-          </div>
+        </div>
       </form>
     </div>
-  <!-- end::Points Card Dropdown -->
+    <!-- end::Points Card Dropdown -->
   </div>
 </div>

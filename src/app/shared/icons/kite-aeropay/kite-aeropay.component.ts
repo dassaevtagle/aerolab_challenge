@@ -1,16 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'kite-aeropay',
-  templateUrl: './kite-aeropay.component.html',
-  styles: [
-  ]
+  selector: "kite-aeropay",
+  templateUrl: "./kite-aeropay.component.html",
+  styles: [],
 })
 export class KiteAeropayComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

@@ -1,8 +1,8 @@
-import { User } from "src/app/models/user.model"
+import { User } from "src/app/models/user.model";
 
 export type UserState = {
-  user: User
-}
+  user: User;
+};
 
 export const initialState: UserState = {
   user: {
@@ -10,6 +10,6 @@ export const initialState: UserState = {
     name: "",
     points: 0,
     createDate: "",
-    redeemHistory: []
-  }
-}
+    redeemHistory: [],
+  },
+};

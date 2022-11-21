@@ -1,17 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { Icons } from '../../icons/icons.enum';
+import { Component, OnInit } from "@angular/core";
+import { Icons } from "../../icons/icons.enum";
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styles: [
-  ]
+  selector: "app-header",
+  templateUrl: "./header.component.html",
+  styles: [],
 })
 export class HeaderComponent implements OnInit {
-  Icons = Icons
-  constructor() { }
+  Icons = Icons;
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

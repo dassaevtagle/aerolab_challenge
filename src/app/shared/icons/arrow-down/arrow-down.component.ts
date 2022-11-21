@@ -1,14 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'arrow-down',
-  templateUrl: './arrow-down.component.html',
+  selector: "arrow-down",
+  templateUrl: "./arrow-down.component.html",
 })
 export class ArrowDownComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

@@ -1,38 +1,38 @@
-@use './animations' as *; //same as @import 'animations';
+@use "./animations" as *; //same as @import 'animations';
 /* Button styles
   .button-cta
   .button-landing-cta
   .button-aeropay
 */
-.button{
-  &-cta{
+.button {
+  &-cta {
     @apply py-3 px-4 text-neutral-0 gradient-brand_default drop-shadow-1 rounded-xl inline-flex w-full justify-center items-center;
     @screen 2xl {
-      @apply p1
+      @apply p1;
     }
     @screen lg {
-      @apply p2
+      @apply p2;
     }
-    
-    &_disabled{
+
+    &_disabled {
       @apply py-3 px-4 text-neutral-600 bg-neutral-200 drop-shadow-1 rounded-xl inline-flex w-full justify-center items-center hover:cursor-auto;
       @screen 2xl {
-        @apply p1
+        @apply p1;
       }
       @screen lg {
-        @apply p2
+        @apply p2;
       }
     }
   }
 
-  &-landing-cta{
+  &-landing-cta {
     @apply inline-flex mt-16 p1 uppercase text-neutral-0 gradient-brand_default px-6 py-[1.3rem] 2xl:px-10 2xl:py-[1.6rem] rounded-3xl relative;
     @include shineAnimation;
   }
 
-  &-aeropay{
+  &-aeropay {
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
     border-radius: 16px;
-    @apply bg-neutral-0 border border-neutral-300 px-4 py-2 flex align-middle
+    @apply bg-neutral-0 border border-neutral-300 px-4 py-2 flex align-middle;
   }
 }

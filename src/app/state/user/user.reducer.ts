@@ -1,22 +1,22 @@
 import { Action, createReducer, on } from "@ngrx/store";
-import * as UserActions from "./user.actions"
+import * as UserActions from "./user.actions";
 import { initialState, UserState } from "./user.state";
 
 const userReducer = createReducer(
   initialState,
   on(UserActions.getUserInfoSuccess, (state, { user }) => ({
     ...state,
-    user
+    user,
   })),
-  on(UserActions.addPointsSuccess, (state, {['New Points']: newPoints}) => ({
+  on(UserActions.addPointsSuccess, (state, { ["New Points"]: newPoints }) => ({
     ...state,
     user: {
       ...state.user,
-      points: newPoints 
-    }
+      points: newPoints,
+    },
   }))
-)
+);
 
 export function reducer(state: UserState | undefined, action: Action) {
-  return userReducer(state, action)
+  return userReducer(state, action);
 }
