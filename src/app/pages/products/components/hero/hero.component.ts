@@ -1,4 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { ViewportScroller } from "@angular/common";
+import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
+import { Router } from "@angular/router";
 import { Icons } from "src/app/shared/icons/icons.enum";
 
 @Component({
@@ -12,7 +14,11 @@ export class HeroComponent implements OnInit {
   readonly heroImagePath = "/assets/img/hero-desktop-cropped.png";
   readonly backgroundImgPath = "/assets/svg/wave-pattern.svg";
 
-  constructor() {}
+  constructor(private scroller: ViewportScroller) {}
 
   ngOnInit(): void {}
+
+  scrollToProducts() {
+    this.scroller.scrollToAnchor("products");
+  }
 }

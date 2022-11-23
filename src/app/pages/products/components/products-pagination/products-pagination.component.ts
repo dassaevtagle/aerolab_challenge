@@ -55,7 +55,7 @@ export class ProductsPaginationComponent implements OnInit {
 
   setCategories() {
     const categories = this.products.map((p) => p.category);
-    this.categories = [...this.categories, ...new Set(categories)];
+    this.categories = ["All Products", ...new Set(categories)];
   }
 
   update() {
